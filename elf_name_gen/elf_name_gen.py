@@ -69,6 +69,12 @@ def ornate_elf_house_name_1():
 
 	return "{}'{}".format(first, last)
 
+def ornate_elf_house_name_2():
+	first = choice(elf_house_suffixes).title()
+	last  = simple_elf_house_name_1()
+
+	return "{}'{}".format(first, last)
+
 def elf_name_grammatical_gender(name):
 	"""
 	returns 'male', 'female', or 'neuter':
@@ -147,12 +153,3 @@ def random_elf_name():
 	last  = random_elf_house_name()
 
 	return "{} {}".format(first, last)
-
-name   = random_elf_name()
-gender = elf_name_grammatical_gender(name)
-
-if gender == "neuter":
-	gender = resolve_gender_neutrality(name)
-
-
-print(name, gender)
