@@ -1,8 +1,8 @@
 import random
 
 city_sizes = {"village" : (25, 100), "town" : (101, 500),
-			  "large town" : (501, 1000), "city" : (1001, 3000),
-			  "large city" : (3001, 5000), "metrolpolis" : (5001, 10000)}
+		"large town" : (501, 1000), "city" : (1001, 3000),
+		"large city" : (3001, 5000), "metrolpolis" : (5001, 10000)}
 
 with open("city_name_syllables.txt") as f:
 	city_name_syllables = f.read().splitlines()
@@ -32,7 +32,6 @@ def simple_city_name():
 
 	rand1 = random.randrange(len_city_syllables)
 	rand2 = random.randrange(len_city_syllables)
-
 	first  = city_name_syllables[rand1]
 	second = city_name_syllables[rand2].lower()
 
