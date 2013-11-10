@@ -2,6 +2,8 @@
 
 from city_gen import *
 
+# Examples by https://github.com/TheNewtInTheSuit
+
 for i in range(10):
 	print(simple_random_city())
 
