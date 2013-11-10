@@ -19,7 +19,7 @@ def roll_d6():
 
 def roll_stat():
 	"""
-	Assume D&D v3.5 PHB1 default rules:
+	Assumes D&D v3.5 PHB1 default rules:
 	Roll 4d6, drop lowest roll, sum the
 	rest of the dice for ability score
 	"""
