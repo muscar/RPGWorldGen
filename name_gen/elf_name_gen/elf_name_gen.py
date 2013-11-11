@@ -5,18 +5,17 @@ Content drawn from Races of the Wild sourcebook
 
 from random import *
 
-with open("elf_name_prefixes.txt", 'r') as f:
+with open("__txt/elf_name_prefixes.txt", 'r') as f:
 	elf_name_prefixes = f.read().splitlines()
 
-with open("elf_name_suffixes.txt", 'r') as f:
+with open("__txt/elf_name_suffixes.txt", 'r') as f:
 	elf_name_suffixes = f.read().splitlines()
 
-with open("elf_house_name_prefixes.txt", 'r') as f:
+with open("__txt/elf_house_name_prefixes.txt", 'r') as f:
 	elf_house_prefixes = f.read().splitlines()
 
-with open("elf_house_name_suffixes.txt", 'r') as f:
+with open("__txt/elf_house_name_suffixes.txt", 'r') as f:
 	elf_house_suffixes = f.read().splitlines()
-
 
 female_suffixes = ["a", "ith", "ae"] # Exclusive to female-suffixed names
 male_suffixes   = ["r", "am", "im"]  # Exclusive to male-suffixed names
@@ -35,13 +34,10 @@ def simple_elf_name_2():
 	return "{}{}{}".format(first, second, last)
 
 def ornate_elf_name_1():
-	first  = choice(elf_name_prefixes)
-	second = choice(elf_name_suffixes)
-	third  = choice(elf_name_prefixes)
-	fourth = choice(elf_name_suffixes)
-	last   = choice(elf_name_suffixes)
+	first  = simple_elf_name_1()
+	last   = simple_elf_name_2()
 
-	return "{}{}'{}{}{}".format(first, second, third, fourth, last)
+	return "{}'{}".format(first, last)
 
 def ornate_elf_name_2():
 	first  = choice(elf_name_suffixes).title()
@@ -75,7 +71,10 @@ def ornate_elf_house_name_2():
 
 	return "{}'{}".format(first, last)
 
-def elf_name_grammatical_gender(name):
+def elf_name_grammatical_gender(name): 
+# I firmly beleive that writing this function
+# has secured my place as the nerdiest dude ever
+# What am I even doing with my life...
 	"""
 	returns 'male', 'female', or 'neuter':
 	the grammatical gender of name. Should
@@ -84,7 +83,7 @@ def elf_name_grammatical_gender(name):
 	to randomly assign a gender
 	to name	 
 	"""
-	name = str(name).split()[0]
+	name   = str(name).split()[0]
 	gender = "neuter"
 
 	f_sufs = (suf for suf in female_suffixes)
