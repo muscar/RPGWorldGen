@@ -12,7 +12,7 @@ On the todo list:
 - Decide on interface (web vs. desktop app?)
 
 Next Week or So
-===============
+---------------
 I'll be building an API for random generation of
 names, cities, and NPCs. Should have fully functional
 generic NPCs up soon.
