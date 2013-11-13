@@ -30,12 +30,7 @@ def simple_city_name():
 	city_name_syllables.txt
 	"""
 
-	rand1 = random.randrange(len_city_syllables)
-	rand2 = random.randrange(len_city_syllables)
-	first  = city_name_syllables[rand1]
-	second = city_name_syllables[rand2].lower()
-
-	return first + second
+	return pattern_city_name("{U}{}")
 
 
 def city_name(syllables):
@@ -72,23 +67,28 @@ def ornate_city_name_1():
 	simple_city_name()
 	"""
 
-	rand1  = random.randrange(len_city_syllables)
-	first  = city_name_syllables[rand1]
-	second = simple_city_name()
-
-	return "{}'{}".format(first, second)
+	return pattern_city_name("{U}'{}")
 
 def ornate_city_name_2():
 
+	return pattern_city_name("{U}-{}")
 
-	rand1   = random.randrange(len_city_syllables)
-	first   = simple_city_name()
-	second  = city_name_syllables[rand1]
+def pattern_city_name(pattern):
+	"""
+	Returns a city name, stylized with an arbitrary pattern, where
+	{U} gives a capital syllable and {} gives a lower case syllable.
+	"""
 
-	return "{}-{}".format(first, second)
-
-
-
+	for symbol in ["{U}", "{}"]:
+		while symbol in pattern:
+			rand = random.randrange(len_city_syllables)
+			new_syllable = ""
+			if symbol is "{U}":
+				new_syllable = city_name_syllables[rand]
+			else:
+				new_syllable = city_name_syllables[rand].lower()
+			pattern = pattern.replace(symbol, new_syllable, 1)
+	return pattern
 
 
 def simple_random_city():
