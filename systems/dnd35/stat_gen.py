@@ -13,11 +13,14 @@ phb_races = ["Human", "Dwarf", "Elf", "Half-Elf", "Half-Orc",
              "Halfling", "Gnome"]
 
 
-class Dnd35Stats(StatGenBase):
+class StatGen(StatGenBase):
     """DnD 3.5 stat generator"""
     
     ABILITY_SCORES = ["Strength", "Dexterity", "Consitution", 
                       "Intelligence", "Wisdom", "Charisma"]
+
+    def __init__(self):
+        super(StatGen, self).__init__()
 
     def _roll_stat(self):
         """
@@ -28,5 +31,3 @@ class Dnd35Stats(StatGenBase):
 
         return sum(dice.discard(dice.roll("4d6", sorted=True), 1))
     
-    def __init__(self):
-        super(Dnd35Stats, self).__init__()

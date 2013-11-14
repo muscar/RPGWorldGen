@@ -9,11 +9,14 @@ from lib import dice
 from lib.stat_gen import StatGenBase
 
 
-class SWStats(StatGenBase):
+class StatGen(StatGenBase):
     """S&W stat generator"""
     
     ABILITY_SCORES = ["Strength", "Dexterity", "Consitution", 
                       "Intelligence", "Wisdom", "Charisma"]
+    
+    def __init__(self):
+        super(StatGen, self).__init__()
 
     def _roll_stat(self):
         """
@@ -22,6 +25,3 @@ class SWStats(StatGenBase):
         """
         
         return sum(dice.roll("3d6", sorted=True))
-    
-    def __init__(self):
-        super(SWStats, self).__init__()
